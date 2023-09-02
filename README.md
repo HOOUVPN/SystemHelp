@@ -5,6 +5,8 @@ Instalado do Chatwoot+ Evolution api + typebot
 
 
 apt-get update -y
+
+
 apt-get install -y unzip
 
 
