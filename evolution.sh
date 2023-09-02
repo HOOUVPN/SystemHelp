@@ -24,44 +24,45 @@ echo -e "\e[32m\e[0m"
 sleep 3
 
 #######################################################
-echo "Preencha read -p "Digite seu domínio para acessar a API (ex: api.dominio.com): " dominio
+echo "Vamos Instalar o EvolutionApi"
 echo ""
-read -p "Digite a porta da API (padrão: 8080): " porta
+read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
 echo ""
-read -p "Digite o nome da sua empresa (ex: OrionDesign): " client
+read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
+read -p "Digite o nome para sua api (ex: system): " client
+echo ""
+echo "ATENÇÃO ⚠️CRIE UM TOKEM 32 OU USER O QUE JA ESTA AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
+read -p " sua ApiKey Global (ex:c56f3775313440c3edce57529a0f02b4): " keyy
+echo ""
+echo ""
+echo ""
+echo ""
+echo "Agora Vamos confirmar Typebot para rodar em docker"
+echo ""
+read -p "Qual e o seu dominio para o typebot (ex: typebot.seudominio.com): " builder
+echo ""
+read -p "Porta para o typebot (padrão: 3301): " portabuilder
+echo ""
+read -p "Qual e o seu dominio para o bot (ex: bot.seudominio.com): " viewer
+echo ""
+read -p "Porta para seu boot (padrão: 3302): " portaviewer
+echo ""
+read -p "Qual é o seu domínio para Storage (ex: storage.seudominio.com): " storage
+echo ""
+read -p "Porta par Storage (padrão: 9020): " portastorage
+echo ""
+read -p "Seu Email ( eu configurei para que funcione com gmail entao em outro email nao vai funcionar): " email
+echo ""
+read -p "Senha do aplicativo do gmail(se nao souber oque e pare aqui e cora atras): " senha
+echo ""
+read -p "SMTP do gmail  (ex: smtp.gmail.com): " smtp
+echo ""
+read -p "Porta SMTP (ex: 587): " portasmtp
+echo ""
+read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false, caso contrário, digite true): " SECURE
 echo ""
 echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
-read -p "Digite sua ApiKey Global (ex: 1169f6f7306fe524e54f79e45ba012cf): " keyy
-echo ""
-echo ""
-echo ""
-echo ""
-echo "Agora as informações do Docker Composer do Typebot"
-echo ""
-read -p "Link do Builder (ex: typebot.seudominio.com): " builder
-echo ""
-read -p "Porta do Builder (padrão: 3001): " portabuilder
-echo ""
-read -p "Link do Viewer (ex: bot.seudominio.com): " viewer
-echo ""
-read -p "Porta do Viewer (padrão: 3002): " portaviewer
-echo ""
-read -p "Link do Storage (ex: storage.seudominio.com): " storage
-echo ""
-read -p "Porta do Storage (padrão: 9000): " portastorage
-echo ""
-read -p "Seu Email (ex: contato@dominio.com): " email
-echo ""
-read -p "Senha do seu Email (se for Gmail, precisa ser a senha de aplicativo): " senha
-echo ""
-read -p "SMTP do seu email (ex: smtp.hostinger.com): " smtp
-echo ""
-read -p "Porta SMTP (ex: 465): " portasmtp
-echo ""
-read -p "SMTP_SECURE (Se a porta SMTP for 465, digite true, caso contrário, digite false): " SECURE
-echo ""
-echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
-read -p "Chave secreta de 32 caracteres: (ex: c56f3775313440c3edce57529a0f02b4) " key
+read -p "Chave secreta de 32 característica ou user a global ao lado: (ex: c56f3775313440c3edce57529a0f02b4) " key
 
 #######################################################
 
