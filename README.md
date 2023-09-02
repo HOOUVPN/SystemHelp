@@ -12,28 +12,21 @@ apt-get install -y unzip
 
 if [ ! -d "SystemHelp" ]; then git clone https://github.com/HOOUVPN/SystemHelp.git && cd SystemHelp && unzip SystemHelp.zip -d /root/; fi
 
+AQUI ESTA PARA CRIAR INSTCIA TYPEBOOT NO TYPE 
+
+https://seu ip ou dominio /instance/create
 
 
 {
-
-"instanceName": "testeed",
-
-"token":
-
-"qrcode": true,
-
-"typebot_url": "https://mmm1.trecofantastico.com.br",
-
-"typebot": "my-typebot-5jid31c",
-
-"typebot_expire": 60,
-
-"typebot_keyword_finish": "#SAIR",
-
-"typebot_delay_message": 1000,
-
-"typebot_unknown_message": "Mensagem não reconhecida"
-
+  "instanceName": "fluxo1",
+  "token": "",
+  "qrcode": true,
+  "typebot_url": "bot.systemhelp.site",
+  "typebot": "beta1",
+  "typebot_expire": 60,
+  "typebot_keyword_finish": "#SAIR",
+  "typebot_delay_message": 2000,
+  "typebot_unknown_message": "Desculpe, no momento, não sou capaz de ouvir ou ver imagens, 🤖 e não posso enviar áudio ou imagens. "
 }
 
 
