@@ -20,9 +20,7 @@ clear
 sleep 3
 
 #######################################################
-
 echo "Preencha read -p "Digite seu domínio para acessar a API (ex: api.dominio.com): " dominio
-
 echo ""
 read -p "Digite a porta da API (padrão: 8080): " porta
 echo ""
