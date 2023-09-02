@@ -29,37 +29,37 @@ echo ""
 read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
 echo ""
 read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
-read -p "Digite o nome para sua api (ex: system): " client
+read -p "Digite o nome para sua API (ex: system): " client
 echo ""
-echo "ATENÇÃO ⚠️CRIE UM TOKEM 32 OU USE O QUE JA ESTA AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
-read -p " sua ApiKey Global (ex:c56f3775313440c3edce57529a0f02b4): " keyy
-echo ""
-echo ""
+echo "ATENÇÃO ⚠️ CRIE UM TOKEN DE 32 CARACTERES OU USE O QUE JA ESTÁ AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
+read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
 echo ""
 echo ""
-echo "Agora Vamos confirmar Typebot para rodar em docker"
 echo ""
-read -p "Qual e o seu dominio para o typebot (ex: typebot.seudominio.com): " builder
 echo ""
-read -p "Porta para o typebot (padrão: 3301): " portabuilder
+echo "Agora vamos configurar o Typebot para rodar em Docker"
 echo ""
-read -p "Qual e o seu dominio para o bot (ex: bot.seudominio.com): " viewer
+read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
 echo ""
-read -p "Porta para seu boot (padrão: 3302): " portaviewer
+read -p "Porta para o Typebot (padrão: 3301): " portabuilder
 echo ""
-read -p "Qual é o seu domínio para Storage (ex: storage.seudominio.com): " storage
+read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
 echo ""
-read -p "Porta par Storage (padrão: 9020): " portastorage
+read -p "Porta para seu Bot (padrão: 3302): " portaviewer
 echo ""
-read -p "Seu Email ( eu configurei para que funcione com gmail entao em outro email nao vai funcionar): " email
+read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
 echo ""
-read -p "Senha do aplicativo do gmail(se nao souber oque e pare aqui e cora atras): " senha
+read -p "Porta para o Storage (padrão: 9020): " portastorage
 echo ""
-read -p "SMTP do gmail  (ex: smtp.gmail.com): " smtp
+read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
+echo ""
+read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
+echo ""
+read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
 echo ""
 read -p "Porta SMTP (ex: 587): " portasmtp
 echo ""
-read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false, caso contrário, digite true): " SECURE
+read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
 echo ""
 echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
 read -p "Chave secreta de 32 caracteres ou use a global ao lado: (ex: c56f3775313440c3edce57529a0f02b4) " key
