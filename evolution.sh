@@ -3,66 +3,37 @@
 clear
 echo -e "\e[32m\e[0m"
 echo -e "\e[32m\e[0m"
-loading() {
-    local duration=2
-    local width=$2
-    local interval=0.02
-    local progress=0
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m _______                _                 _                  _______  ______   _ \e[0m"
+echo -e "\e[32m(_______)              | |           _   (_)                (_______)(_____ \ | |\e[0m"
+echo -e "\e[32m _____    _   _   ___  | |  _   _  _| |_  _   ___   ____     _______  _____) )| |\e[0m"
+echo -e "\e[32m|  ___)  | | | | / _ \ | | | | | |(_   _)| | / _ \ |  _ \   |  ___  ||  ____/ | |\e[0m"
+echo -e "\e[32m| |_____  \ V / | |_| || | | |_| |  | |_ | || |_| || | | |  | |   | || |      | |\e[0m"
+echo -e "\e[32m|_______)  \_/   \___/  \_)|____/    \__)|_| \___/ |_| |_|  |_|   |_||_|      |_|\e[0m"
+echo -e "\e[32m                                                                                 \e[0m"
+echo -e "\e[32m  ___      _______                       _                   \e[0m"
+echo -e "\e[32m / _ \    (_______)                     | |              _   \e[0m"
+echo -e "\e[32m( (_) )       _     _   _  ____   _____ | |__    ___   _| |_ \e[0m"
+echo -e "\e[32m ) _ (       | |   | | | ||  _ \ | ___ ||  _ \  / _ \ (_   _)\e[0m"
+echo -e "\e[32m( (/  \      | |   | |_| || |_| || ____|| |_) )| |_| |  | |_ \e[0m"
+echo -e "\e[32m \__/\_)     |_|    \__  ||  __/ |_____)|____/  \___/    \__)\e[0m"
+echo -e "\e[32m                   (____/ |_|                                \e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
 
-    while [ $progress -le 100 ]; do
-        local bar=$(printf "[%-${width}s]" $(printf "=%.0s" $(seq 1 $(($progress * $width / 100)))))
-        printf "\rCarregando... $bar%3d%%" $progress
-        sleep $interval
-        progress=$((progress + 1))
-    done
-
-    clear
-}
-
-width=100
-
-clear
-
-max_width=$(tput cols)
-
-center_text() {
-    local text="$1"
-    local padding_width=$(( ($max_width - ${#text}) / 2 ))
-    printf "%${padding_width}s%s%${padding_width}s\n" "" "$text" ""
-}
-
-green="\e[32m"
-reset="\e[0m"
-
-clear
-
-echo -e "$green"
-echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
-echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
-echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
-echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
-echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
-echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
-echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
-echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
-echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
-echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
-echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
-echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
-echo -e "$reset
-
-clear
 sleep 3
 
 #######################################################
 
-echo ""
+echo "Preencha as informações a serguir para criar o env da Evolution"
 echo ""
 read -p "Digite seu dominio para acessar a api (ex: api.dominio.com): " dominio
 echo ""
 read -p "Digite a porta da api (padrão: 8080): " porta
 echo ""
-read -p "Digite o nome da sua empresa (ex: epresa): " client
+read -p "Digite o nome da sua empresa (ex: OrionDesign): " client
 echo ""
 echo "crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
 read -p "Digite sua ApiKey Global (ex: 1169f6f7306fe524e54f79e45ba012cf): " keyy
@@ -632,14 +603,12 @@ echo -e "\e[32m\e[0m"
 echo -e "\e[32m\e[0m"
 echo -e "\e[32mAcesse a Evolution API através do link: https://$dominio\e[0m"
 echo -e "\e[32m\e[0m"
+echo -e "\e[32mAcesse o Builder do Tyoebot através do link: https://$builder\e[0m"
 echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"                                                            echo -e "$green"
-echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄█>echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀>
-echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   >
-echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   >echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███ >
-echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███ >echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███ >
-echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█ >echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
-echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/>
-echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh>
-echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEM>
-echo -e "$reset
+echo -e "\e[32mInscreva-se no meu Canal: https://youtube.com/oriondesign_oficial\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32mSugestões ou duvidas: https://wa.me/+5511973052593\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
