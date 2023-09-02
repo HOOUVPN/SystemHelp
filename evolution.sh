@@ -31,7 +31,7 @@ echo ""
 read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
 read -p "Digite o nome para sua api (ex: system): " client
 echo ""
-echo "ATENÇÃO ⚠️CRIE UM TOKEM 32 OU USER O QUE JA ESTA AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
+echo "ATENÇÃO ⚠️CRIE UM TOKEM 32 OU USE O QUE JA ESTA AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
 read -p " sua ApiKey Global (ex:c56f3775313440c3edce57529a0f02b4): " keyy
 echo ""
 echo ""
@@ -62,7 +62,7 @@ echo ""
 read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false, caso contrário, digite true): " SECURE
 echo ""
 echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
-read -p "Chave secreta de 32 característica ou user a global ao lado: (ex: c56f3775313440c3edce57529a0f02b4) " key
+read -p "Chave secreta de 32 caracteres ou use a global ao lado: (ex: c56f3775313440c3edce57529a0f02b4) " key
 
 #######################################################
 
