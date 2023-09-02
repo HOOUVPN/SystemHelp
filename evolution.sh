@@ -21,15 +21,14 @@ sleep 3
 
 #######################################################
 
-echo "Preencha as informações a serguir para criar o env da Evolution"
+echo "Preencha read -p "Digite seu domínio para acessar a API (ex: api.dominio.com): " dominio
+
 echo ""
-read -p "Digite seu dominio para acessar a api (ex: api.dominio.com): " dominio
-echo ""
-read -p "Digite a porta da api (padrão: 8080): " porta
+read -p "Digite a porta da API (padrão: 8080): " porta
 echo ""
 read -p "Digite o nome da sua empresa (ex: OrionDesign): " client
 echo ""
-echo "crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
+echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
 read -p "Digite sua ApiKey Global (ex: 1169f6f7306fe524e54f79e45ba012cf): " keyy
 echo ""
 echo ""
@@ -51,15 +50,15 @@ read -p "Porta do Storage (padrão: 9000): " portastorage
 echo ""
 read -p "Seu Email (ex: contato@dominio.com): " email
 echo ""
-read -p "Senha do seu Email (se for gmail, precisa ser a senha de aplicativo): " senha
+read -p "Senha do seu Email (se for Gmail, precisa ser a senha de aplicativo): " senha
 echo ""
 read -p "SMTP do seu email (ex: smtp.hostinger.com): " smtp
 echo ""
 read -p "Porta SMTP (ex: 465): " portasmtp
 echo ""
-read -p "SMTP_SECURE (Se a porta SMTP for 465, digite true, caso contrario,digite false): " SECURE #novo
+read -p "SMTP_SECURE (Se a porta SMTP for 465, digite true, caso contrário, digite false): " SECURE
 echo ""
-echo "crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
+echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
 read -p "Chave secreta de 32 caracteres: (ex: c56f3775313440c3edce57529a0f02b4) " key
 
 #######################################################
