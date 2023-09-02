@@ -1,27 +1,21 @@
 #######################################################
 
 clear
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m _______                _                 _                  _______  ______   _ \e[0m"
-echo -e "\e[32m(_______)              | |           _   (_)                (_______)(_____ \ | |\e[0m"
-echo -e "\e[32m _____    _   _   ___  | |  _   _  _| |_  _   ___   ____     _______  _____) )| |\e[0m"
-echo -e "\e[32m|  ___)  | | | | / _ \ | | | | | |(_   _)| | / _ \ |  _ \   |  ___  ||  ____/ | |\e[0m"
-echo -e "\e[32m| |_____  \ V / | |_| || | | |_| |  | |_ | || |_| || | | |  | |   | || |      | |\e[0m"
-echo -e "\e[32m|_______)  \_/   \___/  \_)|____/    \__)|_| \___/ |_| |_|  |_|   |_||_|      |_|\e[0m"
-echo -e "\e[32m                                                                                 \e[0m"
-echo -e "\e[32m  ___      _______                       _                   \e[0m"
-echo -e "\e[32m / _ \    (_______)                     | |              _   \e[0m"
-echo -e "\e[32m( (_) )       _     _   _  ____   _____ | |__    ___   _| |_ \e[0m"
-echo -e "\e[32m ) _ (       | |   | | | ||  _ \ | ___ ||  _ \  / _ \ (_   _)\e[0m"
-echo -e "\e[32m( (/  \      | |   | |_| || |_| || ____|| |_) )| |_| |  | |_ \e[0m"
-echo -e "\e[32m \__/\_)     |_|    \__  ||  __/ |_____)|____/  \___/    \__)\e[0m"
-echo -e "\e[32m                   (____/ |_|                                \e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
+            # Imprime o banner centralizado
+            echo -e "$green"
+            echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
+            echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
+            echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
+            echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
+            echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
+            echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
+            echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
+            echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
+            echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
+            echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
+            echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
+            echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
+            echo -e "$reset
 
 sleep 3
 
@@ -362,7 +356,7 @@ services:
   typebot-builder:
     ports:
       - $portabuilder:3000
-    image: baptistearno/typebot-builder:main
+    image: baptistearno/typebot-builder:2.16.0
     restart: always
     depends_on:
       - typebot-db
@@ -390,7 +384,7 @@ services:
   typebot-viewer:
     ports:
       - $portaviewer:3000
-    image: baptistearno/typebot-viewer:main
+    image: baptistearno/typebot-viewer:2.16.0
     restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
@@ -605,10 +599,20 @@ echo -e "\e[32mAcesse a Evolution API através do link: https://$dominio\e[0m"
 echo -e "\e[32m\e[0m"
 echo -e "\e[32mAcesse o Builder do Tyoebot através do link: https://$builder\e[0m"
 echo -e "\e[32m\e[0m"
-echo -e "\e[32mInscreva-se no meu Canal: https://youtube.com/oriondesign_oficial\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32mSugestões ou duvidas: https://wa.me/+5511973052593\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
+            # Imprime o banner centralizado
+            echo -e "$green"
+            echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
+            echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
+            echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
+            echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
+            echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
+            echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
+            echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
+            echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
+            echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
+            echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
+            echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
+            echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
+            echo -e "$reset"
+
+
