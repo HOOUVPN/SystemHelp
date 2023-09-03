@@ -50,23 +50,20 @@ sleep 3
 
 #######################################################
 echo "Vamos Instalar o EvolutionApi"
-echo ""
+  echo ""
 
-# Obtenha o domínio para acessar a EvolutionApi (com validação)
-dominio=$(validate_domain "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): ")
+  # Obtenha o domínio para acessar a EvolutionApi
+  read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
 
-
-read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
-
-# Validação da porta da EvolutionApi (deve ser um número)
-while true; do
-  read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
-  if [[ -z "$porta" || "$porta" =~ ^[0-9]+$ ]]; then
-    break
-  else
-    print_error "Porta inválida. Por favor, insira um número de porta válido."
-  fi
-done
+  # Obtenha a porta da EvolutionApi (com validação)
+  while true; do
+    read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta_evolutionapi
+    if is_number "$porta_evolutionapi"; then
+      break
+    else
+      print_error "Porta inválida. Por favor, insira uma porta válida (número)."
+    fi
+  done
 
 read -p "Digite o nome para sua API (ex: system): " client
 echo ""
@@ -116,13 +113,21 @@ storage=$(validate_domain "Qual é o seu domínio para o Storage (ex: storage.se
 read -p "Porta para o Storage (padrão: 3303): " portastorage
 
 # Validação da porta do Storage (deve ser um número)
-while true; do
-  read -p "Porta para o Storage (padrão: 3303): " portastorage
-  if [[ -z "$portastorage" || "$portastorage" =~ ^[0-9]+$ ]]; then
-    break
-  else
-    print_error "Porta inválida. Por favor, insira um número de porta válido."
-  fi
+  while true; do
+    read -p "As configurações estão corretas? (y/n): " confirm
+    case $confirm in
+      [Yy]*)
+        break
+        ;;
+      [Nn]*)
+        echo "Configuração cancelada. Execute o script novamente para configurar."
+        exit 0
+        ;;
+      *)
+        print_error "Resposta inválida. Por favor, responda com 'y' ou 'n'."
+        ;;
+    esac
+  done
 done
 
 # Confirmação das configurações
