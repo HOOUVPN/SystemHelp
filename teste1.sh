@@ -144,12 +144,17 @@ echo "Domínio para o Storage: $storage"
 echo "Porta para o Storage: $portastorage"
 echo ""
 
-read -p "As informações estão corretas? (s/n): " confirm
-
-if [[ "$confirm" != "s" && "$confirm" != "S" ]]; then
-  echo "Configuração cancelada. Execute o script novamente para configurar."
-  exit 1
-fi
+read -p "As configurações estão corretas? (sim/não): " confirm
+  if [[ "$confirm" == "sim" ]]; then
+    break
+  elif [[ "$confirm" == "não" ]]; then
+    echo "Configuração cancelada. Execute o script novamente para configurar."
+    exit 1
+  else
+    print_error "Resposta inválida. Por favor, responda com 'sim' ou 'não'."
+    sleep 2
+  fi
+done
 
 
 #######################################################
