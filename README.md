@@ -9,6 +9,9 @@ Instalado do Chatwoot+ Evolution api + typebot
 
 apt update -y && apt upgrade -y && git clone  https://github.com/HOOUVPN/SystemHelp.git && cd SystemHelp && chmod +x menu.sh && sudo ./menu.sh
 
+
+https://sua /manager
+
 AQUI ESTA PARA CRIAR INSTCIA TYPEBOOT NO TYPE 
 
 https://seu ip ou dominio /instance/create
