@@ -55,9 +55,11 @@ echo "Vamos Instalar o EvolutionApi"
   # Obtenha o domínio para acessar a EvolutionApi
   read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
 
-  # Obtenha a porta da EvolutionApi (com validação)
   while true; do
-    read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta_evolutionapi
+    # Obtenha a porta da EvolutionApi
+    read -p "Digite a porta da EvolutionApi (ex: 8080): " porta_evolutionapi
+
+    # Verifique se a porta é um número
     if is_number "$porta_evolutionapi"; then
       break
     else
