@@ -1,6 +1,31 @@
 #######################################################
 
+#!/bin/bash
+
+# Função para imprimir mensagens de erro em vermelho
+print_error() {
+  echo -e "\e[31mErro: $1\e[0m"
+}
+
+# Função para verificar se a resposta é "nada" ou apenas números
+validate_domain() {
+  while true; do
+    read -p "$1" input
+    if [[ -z "$input" || "$input" =~ ^[0-9]+$ ]]; then
+      print_error "Domínio inválido. Por favor, insira um domínio válido."
+    else
+      break
+    fi
+  done
+  echo "$input"
+}
+
+# Definindo variáveis de cores de escape ANSI
+green='\e[32m'
+reset='\e[0m'
+
 clear
+
 # Imprime o banner centralizado
 echo -e "$green"
 echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
@@ -29,6 +54,7 @@ echo ""
 
 # Obtenha o domínio para acessar a EvolutionApi (com validação)
 dominio=$(validate_domain "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): ")
+
 
 read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
 
