@@ -2,19 +2,12 @@
 
 #!/bin/bash
 
-# Função para imprimir mensagens de erro em vermelho
 print_error() {
   echo -e "\e[31mErro: $1\e[0m"
 }
 
-# Função para verificar se a entrada é um número
-is_number() {
-  re='^[0-9]+$'
-  if ! [[ $1 =~ $re ]]; then
-    return 1
-  fi
-  return 0
-}
+while true; do
+  clear
 
 # Definindo variáveis de cores de escape ANSI
 green='\e[32m'
@@ -57,10 +50,10 @@ echo "Vamos Instalar o EvolutionApi"
     read -p "Digite a porta da EvolutionApi (ex: 8080): " porta_evolutionapi
 
     # Verifique se a porta é um número
-    if is_number "$porta_evolutionapi"; then
-      break
-    else
+    if ! [[ $porta_evolutionapi =~ ^[0-9]+$ ]]; then
       print_error "Porta inválida. Por favor, insira uma porta válida (número)."
+    else
+      break
     fi
   done
 
