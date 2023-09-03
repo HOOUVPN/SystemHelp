@@ -1,17 +1,18 @@
 #######################################################
 
-#!/bin/bash
-
+# Função para imprimir mensagens de erro em vermelho
 print_error() {
   echo -e "\e[31mErro: $1\e[0m"
 }
 
-while true; do
-  clear
-
-# Definindo variáveis de cores de escape ANSI
-green='\e[32m'
-reset='\e[0m'
+# Função para validar se a entrada contém apenas números
+is_number() {
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
 
 while true; do
   clear
@@ -40,17 +41,17 @@ sleep 3
 
 #######################################################
 echo "Vamos Instalar o EvolutionApi"
+echo "Vamos Instalar o EvolutionApi"
+  echo ""
+  read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
   echo ""
 
-  # Obtenha o domínio para acessar a EvolutionApi
-  read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
-
   while true; do
-    # Obtenha a porta da EvolutionApi
-    read -p "Digite a porta da EvolutionApi (ex: 8080): " porta_evolutionapi
-
-    # Verifique se a porta é um número
-    if ! [[ $porta_evolutionapi =~ ^[0-9]+$ ]]; then
+    # Obtém a porta da EvolutionApi
+    read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
+    if [ -z "$porta" ]; then
+      print_error "A porta não pode estar vazia."
+    elif ! is_number "$porta"; then
       print_error "Porta inválida. Por favor, insira uma porta válida (número)."
     else
       break
