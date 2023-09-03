@@ -7,24 +7,21 @@ print_error() {
   echo -e "\e[31mErro: $1\e[0m"
 }
 
-# Função para verificar se a resposta é "nada" ou apenas números
-validate_domain() {
-  while true; do
-    read -p "$1" input
-    if [[ -z "$input" || "$input" =~ ^[0-9]+$ ]]; then
-      print_error "Domínio inválido. Por favor, insira um domínio válido."
-    else
-      break
-    fi
-  done
-  echo "$input"
+# Função para verificar se a entrada é um número
+is_number() {
+  re='^[0-9]+$'
+  if ! [[ $1 =~ $re ]]; then
+    return 1
+  fi
+  return 0
 }
 
 # Definindo variáveis de cores de escape ANSI
 green='\e[32m'
 reset='\e[0m'
 
-clear
+while true; do
+  clear
 
 # Imprime o banner centralizado
 echo -e "$green"
