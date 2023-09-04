@@ -160,6 +160,14 @@ while true; do
         read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
     done
 
+        echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
+        read -p "Chave secreta de 32 caracteres: (ex: c56f3775313440c3edce57529a0f02b4) " key
+
+    while [ ${#key} -ne 32 ]; do
+        echo "A chave secreta deve ter exatamente 32 caracteres."
+        read -p "Chave secreta de 32 caracteres: (ex: c56f3775313440c3edce57529a0f02b4) " key
+    done
+
     echo ""
     echo "As informações fornecidas estão corretas?"
     echo "Domínio do Typebot: $builder"
@@ -172,6 +180,7 @@ while true; do
     echo "SMTP do Gmail: $smtp"
     echo "Porta SMTP: $portasmtp"
     echo "SMTP_SECURE: $SECURE"
+    echo "Chave secreta (ApiKey): $key"
     read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
 
     if [ "$confirmacao" = "Y" ] || [ "$confirmacao" = "y" ]; then
