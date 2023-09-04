@@ -24,7 +24,24 @@ echo -e "\e[32m\e[0m"
 sleep 3
 
 #######################################################
+#!/bin/bash
+
+# Função para exibir um banner
+exibir_banner() {
+    clear
+    echo -e "$green"
+    echo -e "\e[32m$1\e[0m"
+    echo -e "$reset"
+    echo ""
+    sleep 2
+}
+
+# Exibir um banner inicial
+exibir_banner "CONFIGURAÇÃO DA EVOLUTION API"
+
 while true; do
+    exibir_banner "CONFIGURAÇÃO DA EVOLUTION API"
+
     echo "Vamos Instalar o EvolutionApi"
     echo ""
     read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
@@ -59,7 +76,7 @@ while true; do
     done
 
     # Pergunte ao usuário se as informações estão corretas
-    echo ""
+    exibir_banner "CONFIRMAÇÃO DA CONFIGURAÇÃO DA EVOLUTION API"
     echo "As informações fornecidas estão corretas?"
     echo "Domínio da API: $dominio"
     echo "Porta da API: $porta"
@@ -73,6 +90,9 @@ while true; do
         continue  # Se o usuário disser "N", continue repetindo as perguntas
     fi
 done
+
+# O script continuará a partir daqui com as informações corretas
+
 
 # O script continuará a partir daqui com as informações corretas
 
