@@ -168,32 +168,27 @@ while true; do
             read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
         done
 
-        # Pergunte ao usuário se as informações estão corretas
-        exibir_banner
+# Pergunte ao usuário se as informações estão corretas
+exibir_banner
 
-        echo "As informações fornecidas estão corretas?"
-        echo "Domínio do Typebot: $builder"
-        echo "Porta do Typebot: $portabuilder"
-        echo "Domínio do Bot: $viewer"
-        echo "Porta do Bot: $portaviewer"
-        echo "Domínio do Storage: $storage"
-        echo "Porta do Storage: $portastorage"
-        echo "Email: $email"
-        echo "SMTP do Gmail: $smtp"
-        echo "Porta SMTP: $portasmtp"
-        echo "SMTP_SECURE: $SECURE"
-        read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
+echo "As informações fornecidas estão corretas?"
+echo "Domínio do Typebot: $builder"
+echo "Porta do Typebot: $portabuilder"
+echo "Domínio do Bot: $viewer"
+echo "Porta do Bot: $portaviewer"
+echo "Domínio do Storage: $storage"
+echo "Porta do Storage: $portastorage"
+echo "Email: $email"
+echo "SMTP do Gmail: $smtp"
+echo "Porta SMTP: $portasmtp"
+echo "SMTP_SECURE: $SECURE"
+read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
 
-        if [ "$confirmacao" != "Y" ] && [ "$confirmacao" != "y" ]; then
-            configurar_typebot  # Se as informações estiverem incorretas, repita a configuração
-        fi
-    }
+if [ "$confirmacao" != "Y" ] && [ "$confirmacao" != "y" ]; then
+    continue  # Continuar o loop para repetir a configuração
+fi
 
-    configurar_evolution
-    configurar_typebot
-
-    # Se desejar executar alguma ação após a configuração do Evolution e do TypeBot, insira aqui.
-done
+# Se o usuário confirmar, o script continuará daqui
 
 
 #######################################################
