@@ -24,45 +24,169 @@ echo -e "\e[32m\e[0m"
 sleep 3
 
 #######################################################
-echo "Vamos Instalar o EvolutionApi"
-echo ""
-read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
-echo ""
-read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
-read -p "Digite o nome para sua API (ex: system): " client
-echo ""
-echo "ATENÇÃO ⚠️ CRIE UM TOKEN DE 32 CARACTERES OU USE O QUE JA ESTÁ AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
-read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
-echo ""
-echo ""
-echo ""
-echo ""
-echo "Agora vamos configurar o Typebot para rodar em Docker"
-echo ""
-read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
-echo ""
-read -p "Porta para o Typebot (padrão: 3301): " portabuilder
-echo ""
-read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
-echo ""
-read -p "Porta para seu Bot (padrão: 3302): " portaviewer
-echo ""
-read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
-echo ""
-read -p "Porta para o Storage (padrão: 9020): " portastorage
-echo ""
-read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
-echo ""
-read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
-echo ""
-read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
-echo ""
-read -p "Porta SMTP (ex: 587): " portasmtp
-echo ""
-read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
-echo ""
-echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
-read -p "Chave secreta de 32 caracteres ou use a global ao lado: (ex: c56f3775313440c3edce57529a0f02b4) " key
+while true; do
+    exibir_banner
+
+    # Função para configurar o Evolution API
+    configurar_evolution() {
+        exibir_banner
+
+        echo "Vamos Instalar o EvolutionApi"
+        echo ""
+        read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
+
+        while [ -z "$dominio" ]; do
+            echo "Resposta inválida. O domínio não pode ser vazio."
+            read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
+        done
+
+        echo ""
+        read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
+
+        while [ -z "$porta" ]; do
+            echo "Resposta inválida. A porta não pode ser vazia."
+            read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
+        done
+
+        read -p "Digite o nome para sua API (ex: system): " client
+
+        while [ -z "$client" ]; do
+            echo "Resposta inválida. O nome da API não pode ser vazio."
+            read -p "Digite o nome para sua API (ex: system): " client
+        done
+
+        echo ""
+        echo "ATENÇÃO ⚠️ CRIE UM TOKEN DE 32 CARACTERES OU USE O QUE JA ESTÁ AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
+        read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
+
+        while [ -z "$keyy" ]; do
+            echo "Resposta inválida. A ApiKey Global não pode ser vazia."
+            read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
+        done
+
+        # Pergunte ao usuário se as informações estão corretas
+        exibir_banner
+
+        echo "As informações fornecidas estão corretas?"
+        echo "Domínio da API: $dominio"
+        echo "Porta da API: $porta"
+        echo "Nome da API: $client"
+        echo "ApiKey Global: $keyy"
+        read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
+
+        if [ "$confirmacao" != "Y" ] && [ "$confirmacao" != "y" ]; then
+            configurar_evolution  # Se as informações estiverem incorretas, repita a configuração
+        fi
+    }
+
+    # Função para configurar o TypeBot
+    configurar_typebot() {
+        exibir_banner
+
+        echo "Agora vamos configurar o Typebot para rodar em Docker"
+        echo ""
+        read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
+
+        while [ -z "$builder" ]; do
+            echo "Resposta inválida. O domínio do Typebot não pode ser vazio."
+            read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
+        done
+
+        echo ""
+        read -p "Porta para o Typebot (padrão: 3301): " portabuilder
+
+        while [ -z "$portabuilder" ]; do
+            portabuilder="3301"
+        done
+
+        read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
+
+        while [ -z "$viewer" ]; do
+            echo "Resposta inválida. O domínio do Bot não pode ser vazio."
+            read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
+        done
+
+        echo ""
+        read -p "Porta para seu Bot (padrão: 3302): " portaviewer
+
+        while [ -z "$portaviewer" ]; do
+            portaviewer="3302"
+        done
+
+        read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
+
+        while [ -z "$storage" ]; do
+            echo "Resposta inválida. O domínio do Storage não pode ser vazio."
+            read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
+        done
+
+        echo ""
+        read -p "Porta para o Storage (padrão: 9020): " portastorage
+
+        while [ -z "$portastorage" ]; do
+            portastorage="9020"
+        done
+
+        read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
+
+        while [ -z "$email" ]; do
+            echo "Resposta inválida. O Email não pode ser vazio."
+            read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
+        done
+
+        echo ""
+        read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
+
+        while [ -z "$senha" ]; do
+            echo "Resposta inválida. A senha não pode ser vazia."
+            read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
+        done
+
+        echo ""
+        read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
+
+        while [ -z "$smtp" ]; do
+            echo "Resposta inválida. O SMTP do Gmail não pode ser vazio."
+            read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
+        done
+
+        echo ""
+        read -p "Porta SMTP (ex: 587): " portasmtp
+
+        while [ -z "$portasmtp" ]; do
+            echo "Resposta inválida. A porta SMTP não pode ser vazia."
+            read -p "Porta SMTP (ex: 587): " portasmtp
+        done
+
+        echo ""
+        read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
+
+        while [ -z "$SECURE" ]; do
+            echo "Resposta inválida. O campo SMTP_SECURE não pode ser vazio."
+            read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
+        done
+
+
+ # Pergunte ao usuário se as informações estão corretas
+    exibir_banner
+
+    echo "As informações fornecidas estão corretas?"
+    echo "Domínio do Typebot: $builder"
+    echo "Porta do Typebot: $portabuilder"
+    echo "Domínio do Bot: $viewer"
+    echo "Porta do Bot: $portaviewer"
+    echo "Domínio do Storage: $storage"
+    echo "Porta do Storage: $portastorage"
+    echo "Email: $email"
+    echo "SMTP do Gmail: $smtp"
+    echo "Porta SMTP: $portasmtp"
+    echo "SMTP_SECURE: $SECURE"
+    read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
+
+    if [ "$confirmacao" != "Y" ] && [ "$confirmacao" != "y" ]; then
+        return  # Retorna da função para continuar após a confirmação
+    fi
+ }
 
 #######################################################
 
