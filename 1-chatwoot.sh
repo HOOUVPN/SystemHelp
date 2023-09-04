@@ -138,6 +138,43 @@ sudo timedatectl set-timezone America/Sao_Paulo
 #########################################################
 #
 # BAIXANDO CHATWOOT E EXECUTANDO
+
+echo "Instalando as Dependencias"
+
+sleep 3
+
+clear
+
+sudo apt update -y
+
+sudo apt upgrade -y
+
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs
+
+npm install -g npm@
+
+npm install -g pm2@
+
+apt-get install -y git zip unzip nload snapd curl wget sudo
+
+sudo timedatectl set-timezone America/Sao_Paulo
+
+apt update && apt -y upgrade
+
+apt install docker-compose -y
+
+sudo apt update
+
+sudo apt install nginx -y
+
+sudo apt update
+
+sudo apt install certbot -y
+
+sudo apt install python3-certbot-nginx -y
+
+sudo apt update
+
 #
 wget https://get.chatwoot.app/linux/install.sh
 
