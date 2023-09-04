@@ -1,22 +1,33 @@
 #######################################################
 
-#!/bin/bash
-
-# Função para exibir um banner
+# Função para exibir um banner centralizado
 exibir_banner() {
     clear
     echo -e "$green"
-    echo -e "\e[32m$1\e[0m"
+    echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
+    echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
+    echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
+    echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
+    echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
+    echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
+    echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
+    echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
+    echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
+    echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
+    echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
+    echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
     echo -e "$reset"
-    echo ""
-    sleep 2
+    echo -e "\e[32m\e[0m"
+    echo -e "\e[32m\e[0m"
+    echo -e "\e[32m\e[0m"
+    echo -e "\e[32m\e[0m"
 }
 
 # Exibir um banner inicial
-exibir_banner "CONFIGURAÇÃO DA EVOLUTION API"
+exibir_banner
 
 while true; do
-    exibir_banner "CONFIGURAÇÃO DA EVOLUTION API"
+    exibir_banner
 
     echo "Vamos Instalar o EvolutionApi"
     echo ""
@@ -68,116 +79,6 @@ while true; do
 done
 
 # O script continuará a partir daqui com as informações corretas
-
-# Coloque o restante do seu código aqui...
-
-echo "Agora vamos configurar o Typebot para rodar em Docker"
-echo ""
-while true; do
-    read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
-
-    while [ -z "$builder" ]; do
-        echo "Resposta inválida. O domínio do Typebot não pode ser vazio."
-        read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
-    done
-
-    echo ""
-    read -p "Porta para o Typebot (padrão: 3301): " portabuilder
-
-    while [ -z "$portabuilder" ]; do
-        portabuilder="3301"
-    done
-
-    read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
-
-    while [ -z "$viewer" ]; do
-        echo "Resposta inválida. O domínio do Bot não pode ser vazio."
-        read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
-    done
-
-    echo ""
-    read -p "Porta para seu Bot (padrão: 3302): " portaviewer
-
-    while [ -z "$portaviewer" ]; do
-        portaviewer="3302"
-    done
-
-    read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
-
-    while [ -z "$storage" ]; do
-        echo "Resposta inválida. O domínio do Storage não pode ser vazio."
-        read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
-    done
-
-    echo ""
-    read -p "Porta para o Storage (padrão: 9020): " portastorage
-
-    while [ -z "$portastorage" ]; do
-        portastorage="9020"
-    done
-
-    read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
-
-    while [ -z "$email" ]; do
-        echo "Resposta inválida. O Email não pode ser vazio."
-        read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
-    done
-
-    echo ""
-    read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
-
-    while [ -z "$senha" ]; do
-        echo "Resposta inválida. A senha não pode ser vazia."
-        read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
-    done
-
-    echo ""
-    read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
-
-    while [ -z "$smtp" ]; do
-        echo "Resposta inválida. O SMTP do Gmail não pode ser vazio."
-        read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
-    done
-
-    echo ""
-    read -p "Porta SMTP (ex: 587): " portasmtp
-
-    while [ -z "$portasmtp" ]; do
-        echo "Resposta inválida. A porta SMTP não pode ser vazia."
-        read -p "Porta SMTP (ex: 587): " portasmtp
-    done
-
-    echo ""
-    read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
-
-    while [ -z "$SECURE" ]; do
-        echo "Resposta inválida. O campo SMTP_SECURE não pode ser vazio."
-        read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
-    done
-
-    echo ""
-    echo "As informações fornecidas estão corretas?"
-    echo "Domínio do Typebot: $builder"
-    echo "Porta do Typebot: $portabuilder"
-    echo "Domínio do Bot: $viewer"
-    echo "Porta do Bot: $portaviewer"
-    echo "Domínio do Storage: $storage"
-    echo "Porta do Storage: $portastorage"
-    echo "Email: $email"
-    echo "SMTP do Gmail: $smtp"
-    echo "Porta SMTP: $portasmtp"
-    echo "SMTP_SECURE: $SECURE"
-    read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
-
-    if [ "$confirmacao" = "Y" ] || [ "$confirmacao" = "y" ]; then
-        break
-    elif [ "$confirmacao" = "N" ] || [ "$confirmacao" = "n" ]; then
-        continue
-    fi
-done
-
-# O script continuará a partir daqui com as informações corretas
-
 
 
 #######################################################
