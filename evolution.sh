@@ -1,177 +1,174 @@
 #######################################################
 
-# Função para exibir um banner centralizado
-exibir_banner() {
-    clear
-    echo -e "$green"
-    echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
-    echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
-    echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
-    echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
-    echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
-    echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
-    echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
-    echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
-    echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
-    echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
-    echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
-    echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
-    echo -e "$reset"
-    echo -e "\e[32m\e[0m"
-    echo -e "\e[32m\e[0m"
-    echo -e "\e[32m\e[0m"
-    echo -e "\e[32m\e[0m"
-}
+clear
+# Imprime o banner centralizado
+echo -e "$green"
+echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
+echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
+echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
+echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
+echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
+echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
+echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
+echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
+echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
+echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
+echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
+echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
+echo -e "$reset"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
 
-# Exibir um banner inicial
-exibir_banner
+sleep 3
 
+#######################################################
 while true; do
-    exibir_banner
+    echo "Vamos Instalar o EvolutionApi"
+    echo ""
+    read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
 
-    # Função para configurar o Evolution API
-    configurar_evolution() {
-        exibir_banner
-
-        echo "Vamos Instalar o EvolutionApi"
-        echo ""
+    while [ -z "$dominio" ]; do
+        echo "Resposta inválida. O domínio não pode ser vazio."
         read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
+    done
 
-        while [ -z "$dominio" ]; do
-            echo "Resposta inválida. O domínio não pode ser vazio."
-            read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
-        done
+    echo ""
+    read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
 
-        echo ""
+    while [ -z "$porta" ]; do
+        echo "Resposta inválida. A porta não pode ser vazia."
         read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
+    done
 
-        while [ -z "$porta" ]; do
-            echo "Resposta inválida. A porta não pode ser vazia."
-            read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
-        done
+    read -p "Digite o nome para sua API (ex: system): " client
 
+    while [ -z "$client" ]; do
+        echo "Resposta inválida. O nome da API não pode ser vazio."
         read -p "Digite o nome para sua API (ex: system): " client
+    done
 
-        while [ -z "$client" ]; do
-            echo "Resposta inválida. O nome da API não pode ser vazio."
-            read -p "Digite o nome para sua API (ex: system): " client
-        done
+    echo ""
+    echo "ATENÇÃO ⚠️ CRIE UM TOKEN DE 32 CARACTERES OU USE O QUE JA ESTÁ AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
+    read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
 
-        echo ""
-        echo "ATENÇÃO ⚠️ CRIE UM TOKEN DE 32 CARACTERES OU USE O QUE JA ESTÁ AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
+    while [ -z "$keyy" ]; do
+        echo "Resposta inválida. A ApiKey Global não pode ser vazia."
         read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
+    done
 
-        while [ -z "$keyy" ]; do
-            echo "Resposta inválida. A ApiKey Global não pode ser vazia."
-            read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
-        done
+    # Pergunte ao usuário se as informações estão corretas
+    echo ""
+    echo "As informações fornecidas estão corretas?"
+    echo "Domínio da API: $dominio"
+    echo "Porta da API: $porta"
+    echo "Nome da API: $client"
+    echo "ApiKey Global: $keyy"
+    read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
 
-        # Pergunte ao usuário se as informações estão corretas
-        exibir_banner
+    if [ "$confirmacao" = "Y" ] || [ "$confirmacao" = "y" ]; then
+        break  # Se as informações estiverem corretas, saia do loop
+    elif [ "$confirmacao" = "N" ] || [ "$confirmacao" = "n" ]; then
+        continue  # Se o usuário disser "N", continue repetindo as perguntas
+    fi
+done
 
-        echo "As informações fornecidas estão corretas?"
-        echo "Domínio da API: $dominio"
-        echo "Porta da API: $porta"
-        echo "Nome da API: $client"
-        echo "ApiKey Global: $keyy"
-        read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
-
-        if [ "$confirmacao" != "Y" ] && [ "$confirmacao" != "y" ]; then
-            configurar_evolution  # Se as informações estiverem incorretas, repita a configuração
-        fi
-    }
 
     # Função para configurar o TypeBot
-    configurar_typebot() {
-        exibir_banner
+    echo "Agora vamos configurar o Typebot para rodar em Docker"
+echo ""
+while true; do
+    read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
 
-        echo "Agora vamos configurar o Typebot para rodar em Docker"
-        echo ""
+    while [ -z "$builder" ]; do
+        echo "Resposta inválida. O domínio do Typebot não pode ser vazio."
         read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
+    done
 
-        while [ -z "$builder" ]; do
-            echo "Resposta inválida. O domínio do Typebot não pode ser vazio."
-            read -p "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): " builder
-        done
+    echo ""
+    read -p "Porta para o Typebot (padrão: 3301): " portabuilder
 
-        echo ""
-        read -p "Porta para o Typebot (padrão: 3301): " portabuilder
+    while [ -z "$portabuilder" ]; do
+        portabuilder="3301"
+    done
 
-        while [ -z "$portabuilder" ]; do
-            portabuilder="3301"
-        done
+    read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
 
+    while [ -z "$viewer" ]; do
+        echo "Resposta inválida. O domínio do Bot não pode ser vazio."
         read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
+    done
 
-        while [ -z "$viewer" ]; do
-            echo "Resposta inválida. O domínio do Bot não pode ser vazio."
-            read -p "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): " viewer
-        done
+    echo ""
+    read -p "Porta para seu Bot (padrão: 3302): " portaviewer
 
-        echo ""
-        read -p "Porta para seu Bot (padrão: 3302): " portaviewer
+    while [ -z "$portaviewer" ]; do
+        portaviewer="3302"
+    done
 
-        while [ -z "$portaviewer" ]; do
-            portaviewer="3302"
-        done
+    read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
 
+    while [ -z "$storage" ]; do
+        echo "Resposta inválida. O domínio do Storage não pode ser vazio."
         read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
+    done
 
-        while [ -z "$storage" ]; do
-            echo "Resposta inválida. O domínio do Storage não pode ser vazio."
-            read -p "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): " storage
-        done
+    echo ""
+    read -p "Porta para o Storage (padrão: 9020): " portastorage
 
-        echo ""
-        read -p "Porta para o Storage (padrão: 9020): " portastorage
+    while [ -z "$portastorage" ]; do
+        portastorage="9020"
+    done
 
-        while [ -z "$portastorage" ]; do
-            portastorage="9020"
-        done
+    read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
 
+    while [ -z "$email" ]; do
+        echo "Resposta inválida. O Email não pode ser vazio."
         read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
+    done
 
-        while [ -z "$email" ]; do
-            echo "Resposta inválida. O Email não pode ser vazio."
-            read -p "Seu Email (eu configurei para que funcione com o Gmail, então, em outro email, pode não funcionar): " email
-        done
+    echo ""
+    read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
 
-        echo ""
+    while [ -z "$senha" ]; do
+        echo "Resposta inválida. A senha não pode ser vazia."
         read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
+    done
 
-        while [ -z "$senha" ]; do
-            echo "Resposta inválida. A senha não pode ser vazia."
-            read -p "Senha do aplicativo do Gmail (se você não souber o que é, pare aqui e procure): " senha
-        done
+    echo ""
+    read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
 
-        echo ""
+    while [ -z "$smtp" ]; do
+        echo "Resposta inválida. O SMTP do Gmail não pode ser vazio."
         read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
+    done
 
-        while [ -z "$smtp" ]; do
-            echo "Resposta inválida. O SMTP do Gmail não pode ser vazio."
-            read -p "SMTP do Gmail (ex: smtp.gmail.com): " smtp
-        done
+    echo ""
+    read -p "Porta SMTP (ex: 587): " portasmtp
 
-        echo ""
+    while [ -z "$portasmtp" ]; do
+        echo "Resposta inválida. A porta SMTP não pode ser vazia."
         read -p "Porta SMTP (ex: 587): " portasmtp
+    done
 
-        while [ -z "$portasmtp" ]; do
-            echo "Resposta inválida. A porta SMTP não pode ser vazia."
-            read -p "Porta SMTP (ex: 587): " portasmtp
-        done
+    echo ""
+    read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
 
-        echo ""
+    while [ -z "$SECURE" ]; do
+        echo "Resposta inválida. O campo SMTP_SECURE não pode ser vazio."
         read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
+    done
 
-        while [ -z "$SECURE" ]; do
-            echo "Resposta inválida. O campo SMTP_SECURE não pode ser vazio."
-            read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
-        done
+        echo "Crie sua ApiKey no link: https://codebeautify.org/generate-random-hexadecimal-numbers"
+        read -p "Chave secreta de 32 caracteres: (ex: c56f3775313440c3edce57529a0f02b4) " key
 
+    while [ ${#key} -ne 32 ]; do
+        echo "A chave secreta deve ter exatamente 32 caracteres."
+        read -p "Chave secreta de 32 caracteres: (ex: c56f3775313440c3edce57529a0f02b4) " key
+    done
 
- # Pergunte ao usuário se as informações estão corretas
-    exibir_banner
-
+    echo ""
     echo "As informações fornecidas estão corretas?"
     echo "Domínio do Typebot: $builder"
     echo "Porta do Typebot: $portabuilder"
@@ -183,13 +180,19 @@ while true; do
     echo "SMTP do Gmail: $smtp"
     echo "Porta SMTP: $portasmtp"
     echo "SMTP_SECURE: $SECURE"
+    echo "Chave secreta (ApiKey): $key"
     read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
 
-    if [ "$confirmacao" != "Y" ] && [ "$confirmacao" != "y" ]; then
-        return  # Retorna da função para continuar após a confirmação
+    if [ "$confirmacao" = "Y" ] || [ "$confirmacao" = "y" ]; then
+        break
+    elif [ "$confirmacao" = "N" ] || [ "$confirmacao" = "n" ]; then
+        continue
     fi
+done
 
-    # Se o usuário confirmar, o script continuará daqui
+# O script continuará a partir daqui com as informações corretas
+
+
 #######################################################
 
 echo "Instalando as Dependencias"
@@ -246,7 +249,7 @@ cd
 
 echo "Clonando git e trocando para develop"
 
-git clone https://github.com/HOOUVPN/evolution-api.git
+git clone https://github.com/EvolutionAPI/evolution-api.git
 
 cd evolution-api
 
@@ -705,35 +708,41 @@ sudo certbot --nginx --email $email --redirect --agree-tos -d $dominio -d $build
 
 
 #######################################################
-  }
+cd
+cd
+cd
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m _                             _              _        \e[0m"
+echo -e "\e[32m| |                _          | |            | |       \e[0m"
+echo -e "\e[32m| | ____    ___  _| |_  _____ | |  _____   __| |  ___  \e[0m"
+echo -e "\e[32m| ||  _ \  /___)(_   _)(____ || | (____ | / _  | / _ \ \e[0m"
+echo -e "\e[32m| || | | ||___ |  | |_ / ___ || | / ___ |( (_| || |_| |\e[0m"
+echo -e "\e[32m|_||_| |_|(___/    \__)\_____| \_)\_____| \____| \___/ \e[0m"
+echo -e "\e[32m                                                       \e[0m"              
+echo -e "\e[32m\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32mAcesse a Evolution API através do link: https://$dominio\e[0m"
+echo -e "\e[32m\e[0m"
+echo -e "\e[32mAcesse o Builder do Tyoebot através do link: https://$builder\e[0m"
+echo -e "\e[32m\e[0m"
+            # Imprime o banner centralizado
+            echo -e "$green"
+            echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
+            echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
+            echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
+            echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
+            echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
+            echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
+            echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
+            echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
+            echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
+            echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
+            echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
+            echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
+            echo -e "$reset"
 
-    # Pergunte ao usuário se deseja configurar o Evolution API ou o TypeBot
-    echo "Escolha uma opção:"
-    echo "1. Configurar o Evolution API"
-    echo "2. Configurar o TypeBot"
-    echo "3. Sair"
-    read -p "Digite o número da opção desejada: " escolha
-
-    case $escolha in
-        1)
-            configurar_evolution
-            ;;
-        2)
-            configurar_typebot
-            ;;
-        3)
-            # Opção para sair do script
-            exibir_banner
-            echo "Saindo do script..."
-            exit 0
-            ;;
-        *)
-            exibir_banner
-            echo "Opção inválida, tente novamente."
-            ;;
-    esac
-done
-
-# Finalize o script com um código de saída 0 (sucesso)
-exit 0
-Neste código revisado, eu organizei suas funções e adicionei um menu para o usuário escolher entre configurar o Evolution API, configurar o TypeBot ou sair do script. Certifique-se de incluir o finalizador exit 0 no final do seu script, após o loop while. Isso garantirá que o script seja finalizado com um código de saída 0 quando o usuário optar por sair.
