@@ -1,16 +1,6 @@
 #######################################################
 
-green="\e[32m"
-reset="\e[0m"
-
-# Função para imprimir mensagens de erro em vermelho
-print_error() {
-  echo -e "\e[31mErro: $1\e[0m"
-}
-
-while true; do
-  clear
-
+clear
 # Imprime o banner centralizado
 echo -e "$green"
 echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
@@ -34,115 +24,57 @@ echo -e "\e[32m\e[0m"
 sleep 3
 
 #######################################################
-echo "Vamos Instalar o EvolutionApi"
-  echo ""
-  read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
-  echo ""
-
-  # Obtém a porta da EvolutionApi
-  read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
-  if [ -z "$porta" ]; then
-    porta=8080
-  elif ! [[ "$porta" =~ ^[0-9]+$ ]]; then
-    print_error "Porta inválida. Será usada a porta padrão 8080."
-    porta=8080
-  fi
-
-read -p "Digite o nome para sua API (ex: system): " client
-echo ""
-echo "ATENÇÃO ⚠️ CRIE UM TOKEN DE 32 CARACTERES OU USE O QUE JA ESTÁ AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
-read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
-echo ""
-echo ""
-echo ""
-echo ""
-
-echo "Agora vamos configurar o Typebot para rodar em Docker"
-echo ""
-
-# Obtenha o domínio para o Typebot (com validação)
-builder=$(validate_domain "Qual é o seu domínio para o Typebot (ex: typebot.seudominio.com): ")
-
-read -p "Porta para o Typebot (padrão: 3301): " portabuilder
-
-# Validação da porta do Typebot (deve ser um número)
 while true; do
-  read -p "Porta para o Typebot (padrão: 3301): " portabuilder
-  if [[ -z "$portabuilder" || "$portabuilder" =~ ^[0-9]+$ ]]; then
-    break
-  else
-    print_error "Porta inválida. Por favor, insira um número de porta válido."
-  fi
+    echo "Vamos Instalar o EvolutionApi"
+    echo ""
+    read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
+
+    while [ -z "$dominio" ]; do
+        echo "Resposta inválida. O domínio não pode ser vazio."
+        read -p "Digite seu domínio para acessar a EvolutionApi (ex: api.dominio.com): " dominio
+    done
+
+    echo ""
+    read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
+
+    while [ -z "$porta" ]; do
+        echo "Resposta inválida. A porta não pode ser vazia."
+        read -p "Digite a porta da EvolutionApi (padrão: 8080): " porta
+    done
+
+    read -p "Digite o nome para sua API (ex: system): " client
+
+    while [ -z "$client" ]; do
+        echo "Resposta inválida. O nome da API não pode ser vazio."
+        read -p "Digite o nome para sua API (ex: system): " client
+    done
+
+    echo ""
+    echo "ATENÇÃO ⚠️ CRIE UM TOKEN DE 32 CARACTERES OU USE O QUE JA ESTÁ AQUI⚠️: https://codebeautify.org/generate-random-hexadecimal-numbers"
+    read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
+
+    while [ -z "$keyy" ]; do
+        echo "Resposta inválida. A ApiKey Global não pode ser vazia."
+        read -p "Sua ApiKey Global (ex: c56f3775313440c3edce57529a0f02b4): " keyy
+    done
+
+    # Pergunte ao usuário se as informações estão corretas
+    echo ""
+    echo "As informações fornecidas estão corretas?"
+    echo "Domínio da API: $dominio"
+    echo "Porta da API: $porta"
+    echo "Nome da API: $client"
+    echo "ApiKey Global: $keyy"
+    read -p "Digite 'Y' para continuar ou 'N' para corrigir: " confirmacao
+
+    if [ "$confirmacao" = "Y" ] || [ "$confirmacao" = "y" ]; then
+        break  # Se as informações estiverem corretas, saia do loop
+    elif [ "$confirmacao" = "N" ] || [ "$confirmacao" = "n" ]; then
+        continue  # Se o usuário disser "N", continue repetindo as perguntas
+    fi
 done
 
-# Obtenha o domínio para o Bot (com validação)
-viewer=$(validate_domain "Qual é o seu domínio para o Bot (ex: bot.seudominio.com): ")
-
-read -p "Porta para seu Bot (padrão: 3302): " portaviewer
-
-# Validação da porta do Bot (deve ser um número)
-while true; do
-  read -p "Porta para seu Bot (padrão: 3302): " portaviewer
-  if [[ -z "$portaviewer" || "$portaviewer" =~ ^[0-9]+$ ]]; then
-    break
-  else
-    print_error "Porta inválida. Por favor, insira um número de porta válido."
-  fi
-done
-
-# Obtenha o domínio para o Storage (com validação)
-storage=$(validate_domain "Qual é o seu domínio para o Storage (ex: storage.seudominio.com): ")
-
-read -p "Porta para o Storage (padrão: 3303): " portastorage
-
-# Validação da porta do Storage (deve ser um número)
-  while true; do
-    read -p "As configurações estão corretas? (y/n): " confirm
-    case $confirm in
-      [Yy]*)
-        break
-        ;;
-      [Nn]*)
-        echo "Configuração cancelada. Execute o script novamente para configurar."
-        exit 0
-        ;;
-      *)
-        print_error "Resposta inválida. Por favor, responda com 'y' ou 'n'."
-        ;;
-    esac
-  done
-done
-
-# Confirmação das configurações
-echo ""
-echo "Por favor, verifique as seguintes configurações:"
-echo ""
-echo "Domínio da EvolutionApi: $dominio"
-echo "Porta da EvolutionApi: $porta"
-echo "Nome para sua API: $client"
-echo "Sua ApiKey Global: $keyy"
-echo ""
-echo "Domínio para o Typebot: $builder"
-echo "Porta para o Typebot: $portabuilder"
-echo ""
-echo "Domínio para o Bot: $viewer"
-echo "Porta para o Bot: $portaviewer"
-echo ""
-echo "Domínio para o Storage: $storage"
-echo "Porta para o Storage: $portastorage"
-echo ""
-
-read -p "As configurações estão corretas? (sim/não): " confirm
-  if [[ "$confirm" == "sim" ]]; then
-    break
-  elif [[ "$confirm" == "não" ]]; then
-    echo "Configuração cancelada. Execute o script novamente para configurar."
-    exit 1
-  else
-    print_error "Resposta inválida. Por favor, responda com 'sim' ou 'não'."
-    sleep 2
-  fi
-done
+# O script continuará a partir daqui com as informações corretas
 
 
 #######################################################
@@ -201,7 +133,7 @@ cd
 
 echo "Clonando git e trocando para develop"
 
-git clone https://github.com/EvolutionAPI/evolution-api.git
+git clone https://github.com/HOOUVPN/MegaSystemHelp.git
 
 cd evolution-api
 
@@ -697,3 +629,5 @@ echo -e "\e[32m\e[0m"
             echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
             echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
             echo -e "$reset"
+
+
