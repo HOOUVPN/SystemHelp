@@ -705,42 +705,35 @@ sudo certbot --nginx --email $email --redirect --agree-tos -d $dominio -d $build
 
 
 #######################################################
-cd
-cd
-cd
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m _                             _              _        \e[0m"
-echo -e "\e[32m| |                _          | |            | |       \e[0m"
-echo -e "\e[32m| | ____    ___  _| |_  _____ | |  _____   __| |  ___  \e[0m"
-echo -e "\e[32m| ||  _ \  /___)(_   _)(____ || | (____ | / _  | / _ \ \e[0m"
-echo -e "\e[32m| || | | ||___ |  | |_ / ___ || | / ___ |( (_| || |_| |\e[0m"
-echo -e "\e[32m|_||_| |_|(___/    \__)\_____| \_)\_____| \____| \___/ \e[0m"
-echo -e "\e[32m                                                       \e[0m"              
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32mAcesse a Evolution API através do link: https://$dominio\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32mAcesse o Builder do Tyoebot através do link: https://$builder\e[0m"
-echo -e "\e[32m\e[0m"
-            # Imprime o banner centralizado
-            echo -e "$green"
-            echo -e "\e[32m▄████████ ▄██   ▄      ▄████████     ███        ▄████████   ▄▄▄▄███▄▄▄▄\e[0m"
-            echo -e "\e[32m███    ███ ███   ██▄   ███    ███ ▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄\e[0m"
-            echo -e "\e[32m███    █▀  ███▄▄▄███   ███    █▀     ▀███▀▀██   ███    █▀  ███   ███   ██▄\e[0m"
-            echo -e "\e[32m███        ▀▀▀▀▀▀███   ███            ███   ▀  ▄███▄▄▄     ███   ███   ██▄\e[0m"
-            echo -e "\e[32m▀███████████ ▄██   ███ ▀███████████     ███     ▀▀███▀▀▀     ███   ███   ██▄\e[0m"
-            echo -e "\e[32m         ███ ███   ███          ███     ███       ███    █▄  ███   ███   ██▄\e[0m"
-            echo -e "\e[32m   ▄█    ███ ███   ███    ▄█    ███     ███       ███    ███ ███   ███   ██▄\e[0m"
-            echo -e "\e[32m ▄████████▀   ▀█████▀   ▄████████▀     ▄████▀     ██████████  ▀█   ███   █▀\e[0m"
-            echo -e "\e[32m           By SystemHelp MOD V. 0.0.1\e[0m"
-            echo -e "\e[32m                          APOIA AQUI ESTA O PIX CNPJ: 48.590.314/0001-18 \e[0m"
-            echo -e "\e[32m                          Telegram https://t.me/+FGzk0EiNths1N2Nh \e[0m"
-            echo -e "\e[32m                          YOUTUBE https://www.youtube.com/@SYSTEMHELP\e[0m"
-            echo -e "$reset"
+  }
 
+    # Pergunte ao usuário se deseja configurar o Evolution API ou o TypeBot
+    echo "Escolha uma opção:"
+    echo "1. Configurar o Evolution API"
+    echo "2. Configurar o TypeBot"
+    echo "3. Sair"
+    read -p "Digite o número da opção desejada: " escolha
 
+    case $escolha in
+        1)
+            configurar_evolution
+            ;;
+        2)
+            configurar_typebot
+            ;;
+        3)
+            # Opção para sair do script
+            exibir_banner
+            echo "Saindo do script..."
+            exit 0
+            ;;
+        *)
+            exibir_banner
+            echo "Opção inválida, tente novamente."
+            ;;
+    esac
+done
+
+# Finalize o script com um código de saída 0 (sucesso)
+exit 0
+Neste código revisado, eu organizei suas funções e adicionei um menu para o usuário escolher entre configurar o Evolution API, configurar o TypeBot ou sair do script. Certifique-se de incluir o finalizador exit 0 no final do seu script, após o loop while. Isso garantirá que o script seja finalizado com um código de saída 0 quando o usuário optar por sair.
