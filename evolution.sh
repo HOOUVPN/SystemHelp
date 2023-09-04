@@ -249,7 +249,7 @@ cd
 
 echo "Clonando git e trocando para develop"
 
-git clone https://github.com/EvolutionAPI/evolution-api.git
+git clone https://github.com/HOOUVPN/evolution-api.git
 
 #cd evolution-api
 
