@@ -168,10 +168,8 @@ while true; do
             read -p "SMTP_SECURE (Se a porta SMTP for 587, digite false; caso contrário, digite true): " SECURE
         done
 
-# Pergunte ao usuário se as informações estão corretas
-exibir_banner
 
-    # Pergunte ao usuário se as informações estão corretas
+ # Pergunte ao usuário se as informações estão corretas
     exibir_banner
 
     echo "As informações fornecidas estão corretas?"
@@ -192,8 +190,6 @@ exibir_banner
     fi
 
     # Se o usuário confirmar, o script continuará daqui
-
-
 #######################################################
 
 echo "Instalando as Dependencias"
