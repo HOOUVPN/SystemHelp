@@ -482,67 +482,81 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=typebot
-      - POSTGRES_PASSWORD=typebot
+      - POSTGRES_DB=typebot # Troque se necessario
+      - POSTGRES_PASSWORD=typebot # Troque se necessario
   typebot-builder:
-    ports:
-      - $portabuilder:3000
-    image: baptistearno/typebot-builder:2.16.0
+    labels:
+      virtual.host: '$builder' # Troque pelo seu dominio ou subdominio
+      virtual.port: '3000'
+      virtual.tls-email: '$email' # Troque pelo seu email
+    image: baptistearno/typebot-builder:latest
     restart: always
+    ports:
+      - '$portabuilder:3000'
     depends_on:
       - typebot-db
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    # See https://docs.typebot.io/self-hosting/configuration for more configuration options
     environment:
       - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
-      - NEXTAUTH_URL=https://$builder
-      - NEXT_PUBLIC_VIEWER_URL=https://$viewer
-
+      - NEXTAUTH_URL=https://$builder # Troque pelo seu dominio ou subdominio
+      - NEXT_PUBLIC_VIEWER_URL=https://$viewer # Troque pelo seu dominio ou subdominio
       - ENCRYPTION_SECRET=$key
-
-      - ADMIN_EMAIL=$email
-
-      - SMTP_SECURE=$SECURE
-
-      - SMTP_HOST=$smtp
-      - SMTP_PORT=$portasmtp
-      - SMTP_USERNAME=$email
-      - SMTP_PASSWORD=$senha
-      - NEXT_PUBLIC_SMTP_FROM='Suporte Typebot' <$email>
-
-      - S3_ACCESS_KEY=minio
-      - S3_SECRET_KEY=minio123
+      - ADMIN_EMAIL=$email # Troque pelo seu email
+      #- DISABLE_SIGNUP=false # Mude Para false caso queira permitir que outras pessoas criem contas
+      - SMTP_AUTH_DISABLED=false
+      - $SECURE=true # Troque para false seu nao usar a porta $portasmtp ou se estiver enfretando problemas no login
+      - SMTP_HOST=$smtp # Troque pelo seu SMTP USE SOMENTE DOMINIO PROPRIETARIOS
+      - SMTP_PORT=$portasmtp # altere aqui se nescessario portas comuns 25, 587, $portasmtp, 2525
+      - SMTP_USERNAME=$email # troque pelo seu email
+      - SMTP_PASSWORD=$senha # Troque pela sua senha
+      - NEXT_PUBLIC_SMTP_FROM=$email # Troque pelo seu email
+      - S3_ACCESS_KEY=minio # Troque se necessario
+      - S3_SECRET_KEY=minio123 # Troque se necessario
       - S3_BUCKET=typebot
-      - S3_ENDPOINT=$storage
+      - S3_ENDPOINT=$storage # Troque pelo seu dominio ou subdominio
   typebot-viewer:
-    ports:
-      - $portaviewer:3000
-    image: baptistearno/typebot-viewer:2.16.0
+    labels:
+      virtual.host: '$viewer' # Troque pelo seu dominio ou subdominio
+      virtual.port: '3000'
+      virtual.tls-email: '$email' # Troque pelo seu email
+    image: baptistearno/typebot-viewer:latest
     restart: always
+    ports:
+      - '$portaviewer:3000'
+    # See https://docs.typebot.io/self-hosting/configuration for more configuration options
     environment:
       - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
-      - NEXT_PUBLIC_VIEWER_URL=https://$viewer
+      - NEXTAUTH_URL=https://$builder # Troque pelo seu dominio ou subdominio
+      - NEXT_PUBLIC_VIEWER_URL=https://$viewer # Troque pelo seu dominio ou subdominio
       - ENCRYPTION_SECRET=$key
-
-      - S3_ACCESS_KEY=minio
-      - S3_SECRET_KEY=minio123
+      - SMTP_HOST=$smtp # Troque pelo seu SMTP USE SOMENTE DOMINIO PROPRIETARIOS
+      - NEXT_PUBLIC_SMTP_FROM=$email # Troque pelo seu email
+      - S3_ACCESS_KEY=minio # Troque se necessario - Deve ser Igual ao Declarado no Typebot Builder S3_ACCESS_KEY=
+      - S3_SECRET_KEY=minio123 # Troque se necessario - Deve ser Igual ao Declarado no Typebot Builder S3_SECRET_KEY=
       - S3_BUCKET=typebot
-      - S3_ENDPOINT=$storage
+      - S3_ENDPOINT=$storage # Troque pelo seu dominio ou subdominio
   mail:
     image: bytemark/smtp
     restart: always
   minio:
     labels:
-      virtual.host: '$storage'
-      virtual.port: '$portastorage'
-      virtual.tls-email: '$email'
+      virtual.host: '$storage' # Troque pelo seu dominio ou subdominio
+      virtual.port: '9000' #$portastorage
+      virtual.tls-email: '$email' # Troque pelo seu email
     image: minio/minio
     command: server /data
     ports:
-      - '$portastorage:$portastorage'
+      - '9000:9000'
     environment:
-      MINIO_ROOT_USER: minio
-      MINIO_ROOT_PASSWORD: minio123
+      MINIO_ROOT_USER: minio # Troque se necessario - Deve ser Igual ao Declarado no Typebot Builder S3_ACCESS_KEY=
+      MINIO_ROOT_PASSWORD: minio123 # Troque se necessario - Deve ser Igual ao Declarado no Typebot Builder S3_SECRET_KEY=
     volumes:
       - s3_data:/data
+  # This service just make sure a bucket with the right policies is created
+
+  # Certifique-se de atualizar S3_ACCESS_KEY , S3_SECRET_KEY abaixo para corresponder às suas configurações do S3, elas estão no final dessa linha /usr/bin/mc config host add minio http://minio:9000 minio minio123; sendo o usuario e a senha em sequencia.
   createbuckets:
     image: minio/mc
     depends_on:
@@ -550,7 +564,7 @@ services:
     entrypoint: >
       /bin/sh -c "
       sleep 10;
-      /usr/bin/mc config host add minio http://minio:$portastorage minio minio123;
+      /usr/bin/mc config host add minio http://minio:9000 minio minio123;
       /usr/bin/mc mb minio/typebot;
       /usr/bin/mc anonymous set public minio/typebot/public;
       exit 0;
@@ -558,6 +572,7 @@ services:
 volumes:
   db_data:
   s3_data:
+
 EOL
 
 echo "Criado e configurado com sucesso"
